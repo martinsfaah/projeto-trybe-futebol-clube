@@ -2,7 +2,6 @@ import { Request as Req, Response as Res, NextFunction as Next } from 'express';
 import matchesService from '../services/matchesService';
 import tokenAux from '../auxiliar/token';
 
-
 const partidas = async (req: Req, res: Res, next: Next) => {
   try {
     const { inProgress } = req.params;

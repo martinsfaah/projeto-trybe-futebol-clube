@@ -36,7 +36,7 @@ const validar = (req: Req, res: Res, _next: Next) => {
   try {
     const autorizacao = req.headers.authorization;
     const user = tokenAux.decodificarToken(autorizacao as string);
-    const expectedResult = { "role": (user as IUser).role };
+    const expectedResult = { role: (user as IUser).role };
     return res.status(200).json(expectedResult);
   } catch (erro) {
     return res.status(401).json(erro);
