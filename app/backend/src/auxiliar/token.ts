@@ -2,8 +2,12 @@ import { sign, verify, SignOptions } from 'jsonwebtoken';
 import * as fs from 'fs';
 import IUser from '../interface/IUser';
 
+// require('dotenv').config();
+const jwtSecret = 'jwt_secret';
+
+
 const jwtKey = fs
-  .readFileSync('./jwt.evaluation.key', { encoding: 'utf-8' })
+  .readFileSync(jwtSecret, { encoding: 'utf-8' })
   .trim();
 
 const jwtConfig: SignOptions = {
