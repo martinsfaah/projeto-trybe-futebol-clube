@@ -2,13 +2,14 @@ import * as express from 'express';
 import rotaLogin from './rotas/rotaLogin';
 import rotaTeams from './rotas/rotaTeams';
 import rotaMatch from './rotas/rotaMatch';
+import rotaLeaderboard from './rotas/rotaLeaderboard';
 
 class App {
   public app: express.Express;
   public login = rotaLogin;
   public teams = rotaTeams;
   public match = rotaMatch;
-
+  public leaderboard = rotaLeaderboard;
 
   constructor() {
     this.app = express();
@@ -18,6 +19,7 @@ class App {
     this.login(this.app);
     this.teams(this.app);
     this.match(this.app);
+    this.leaderboard(this.app);
 
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));

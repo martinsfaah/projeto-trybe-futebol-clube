@@ -1,5 +1,7 @@
 import { Request as Req, Response as Res, NextFunction as Next } from 'express';
 import matchesService from '../services/matchesService';
+import tokenAux from '../auxiliar/token';
+
 
 const partidas = async (req: Req, res: Res, next: Next) => {
   try {
@@ -13,6 +15,13 @@ const partidas = async (req: Req, res: Res, next: Next) => {
 
 const criarPartida = async (req: Req, res: Res, next: Next) => {
   try {
+    // requisito 27:
+    const autorizacao = req.headers.authorization;
+    const token = tokenAux.decodificarToken(autorizacao as string);
+    if (!token) {
+      return res.status(401).json({ message: 'Token must be a valid token' });
+    }
+    // Atualizar 27 depois
     const data = req.body;
     const novaPartida = await matchesService.criarPartida(data);
     return res.status(201).json(novaPartida);
