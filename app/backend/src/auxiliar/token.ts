@@ -1,14 +1,8 @@
 import { sign, verify, SignOptions } from 'jsonwebtoken';
-import * as fs from 'fs';
+// import * as dotenv from 'dotenv';
 import IUser from '../interface/IUser';
 
-// require('dotenv').config();
-const jwtSecret = 'jwt_secret';
-
-
-const jwtKey = fs
-  .readFileSync(jwtSecret, { encoding: 'utf-8' })
-  .trim();
+const jwtKey = 'jwt_secret';
 
 const jwtConfig: SignOptions = {
   expiresIn: '3600h',
