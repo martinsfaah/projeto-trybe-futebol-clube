@@ -3,6 +3,7 @@ import loginController from '../controllers/loginController';
 
 const rotaLogin = (app: App) => {
   app.post('/login', loginController.fazerLogin);
+  app.get('/login/validate', loginController.validar);
 };
 
 export default rotaLogin;

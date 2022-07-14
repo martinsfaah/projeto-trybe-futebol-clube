@@ -32,6 +32,17 @@ const fazerLogin = async (req: Req, res: Res, next: Next) => {
   }
 };
 
+const validar = (req: Req, res: Res, _next: Next) => {
+  try {
+    const autorizacao = req.headers.authorization;
+    const user = tokenAux.decodificarToken(autorizacao as string);
+    return res.status(200).json((user as IUser).role);
+  } catch (erro) {
+    return res.status(401).json(erro);
+  }
+};
+
 export default {
   fazerLogin,
+  validar,
 };

@@ -17,6 +17,12 @@ const criarToken = (user: IUser) => {
   return token;
 };
 
+const decodificarToken = (token: string) => {
+  const decoded = verify(token, jwtKey);
+  return decoded;
+};
+
 export default {
   criarToken,
+  decodificarToken,
 };

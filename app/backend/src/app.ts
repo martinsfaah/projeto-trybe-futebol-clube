@@ -1,12 +1,16 @@
 import * as express from 'express';
+import rotaLogin from './rotas/rotaLogin';
 
 class App {
   public app: express.Express;
+  public login = rotaLogin;
 
   constructor() {
     this.app = express();
 
     this.config();
+
+    this.login(this.app);
 
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
