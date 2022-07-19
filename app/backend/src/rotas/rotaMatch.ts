@@ -9,6 +9,7 @@ const rotaMatch = (app: App) => {
     '/matches',
     validarMatches.validarTimesIguais,
     validarMatches.validarTimesExistentes,
+    // validarMatches.validarToken,
     matchesController.criarPartida,
   );
   // post de '/matches' só pode ser criada com token JWT validado; //

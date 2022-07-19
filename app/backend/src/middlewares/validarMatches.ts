@@ -27,7 +27,19 @@ const validarTimesExistentes = async (req: Req, res: Res, next: Next) => {
   next();
 };
 
+// const validarToken = async (req: Req, res: Res, next: Next) => {
+//   const autorizacao = req.headers.authorization;
+//   const token = tokenAux.decodificarToken(autorizacao as string);
+  
+//   if (!token) {
+//     return res.status(401).json({ message: 'Token must be a valid token' });
+//     }
+  
+//     next();
+// };
+
 export default {
   validarTimesIguais,
   validarTimesExistentes,
+  // validarToken,
 };
